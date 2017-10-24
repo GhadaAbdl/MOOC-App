@@ -1,0 +1,69 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block header %}
+ {% endblock %}   
+ {% block pagetitle %}LOGIN{% endblock %}
+{% block arianne %}login{% endblock %}
+
+
+{% block fos_user_content %}
+   <div class="login-bg">  
+        <div class="container">
+            <div class="form-wrapper">
+<form class="form-signin wow fadeInUp" action="{{ path("fos_user_security_check") }}" method="post">
+    <h2 class="form-signin-heading">sign in now</h2>
+    <div class="login-wrap">
+    
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    
+    <label  for="username">{{ 'security.login.username'|trans }}</label>
+    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+    <label  for="password">{{ 'security.login.password'|trans }}</label>
+    <input class="form-control" type="password" id="password" name="_password" required="required" />
+
+    
+        
+    <label class="checkbox">
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+          <span class="pull-right">
+                        <a data-toggle="modal" href="{{path('fos_user_resetting_request')}}"> Forgot Password?</a>
+
+          </span>
+    </label>
+ 
+    <input class="btn btn-lg btn-login btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+ 
+</a>          
+    {% if error %}
+    <div style="color : red ;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+    
+    <p>or you can sign in via social network</p>
+    
+                <div class="login-social-link">
+                    
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" class="facebook">
+                        <i class="fa fa-facebook"></i>
+                        Facebook
+                    </a>
+               
+                </div>
+    <div class="registration">
+                    Don't have an account yet?
+                    <a class="" href="{{path('fos_user_registration_register')}}">
+                        Create an account
+                    </a>
+   </div>     
+    </div>
+                
+</form>
+         </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
+{% block footer %}
+ {% endblock %}   

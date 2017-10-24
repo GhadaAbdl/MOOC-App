@@ -1,0 +1,5 @@
+services:
+#    mooc_user.example:
+#        class: Mooc\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+

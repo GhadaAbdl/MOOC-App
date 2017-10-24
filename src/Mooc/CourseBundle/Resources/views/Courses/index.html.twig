@@ -1,0 +1,137 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %}courses {% endblock %}
+{% block arianne %}{{ All }}{% endblock %}
+{% block body -%}
+     
+    
+     
+    {%if entities == null %}
+        <p>sorry there is no validated  {{ All }} courses :( </p>
+   {%else%}
+        {% for entity in entities %}
+            <div class="container">
+    <div class="col-lg-9 ">
+        <div class="blog-item">
+            <div class="row">
+<!--  DATE !-->
+            <div class="col-lg-2 col-sm-2">
+                <div class="date-wrap">
+                    <span class="date">  Rating : {{ entity.rating }} </span>
+                    <span class="month"> training duration: {{ entity.trainingDurationDays }} Day 
+                 {{ entity.trainingDurationHours }} h </span>
+                </div>
+                
+            </div>
+
+ {#    IMAGE      #}
+             <div class="col-lg-10 col-sm-10">
+                <div class="blog-img">
+        {%if entity.discipline=='Android' %}<img src="{{ asset('img/Android.jpg') }}" alt=""/>
+        {%elseif entity.discipline=='IOS' %}<img src="{{ asset('img/IOS.png') }}" alt=""/>
+        {%elseif entity.discipline=='tizen' or entity.discipline=='TIZEN' %}
+                  <img src="{{ asset('img/TIZEN.png') }}" alt=""/>{%endif%}
+                </div>
+
+              </div>
+            
+        </div>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2 text-right">
+                       
+ {#auteur#} 
+                        <div class="author">
+                             By
+                            <a href="#">
+                              {{ entity.idwriter }}
+                            </a>
+                            
+                            
+                        </div>
+                            {% if is_granted("ROLE_PEDAGOGUE") %}
+    
+    
+                         
+                              <a href="{{ path('courses_Validation', { 'id': entity.idCourse }) }}"  >
+                  Validate
+                </a>
+                         {%endif%}    
+                          
+                  <div class="author">
+                              <a href="{{ path('courses_follow', { 'idCourse': entity.idCourse ,'idUser':id_user }) }}"  >
+                  follow course
+                 
+                            
+                        </div>
+ {#   information   #}                 
+                       
+                        
+                    
+                        {#Statistique#}
+                         <div class="st-view">
+                             <ul class="list-unstyled">
+                                
+                                 <li>
+                                        
+                                     {{ entity.discipline }}
+                                        
+                                    </li>
+                                     
+                                   <li>
+                                        
+                                          Comments
+                                       
+                                      </li>
+                                      <li>
+            <a href="{{ path('courses_new') }}">
+                new Course
+            </a>
+        </li>
+         
+                             </ul>
+                         </div>
+                 <ul class="list-unstyled">
+                            <li>
+                                  
+                                    <em>
+                                    there is  {{ entity.numberofchapters }} chapter
+                                    </em>
+                                   
+                            </li>
+                            
+                            
+                        </ul>
+                    
+                    
+                </div>
+                         <div class="col-lg-10 col-sm-10">
+                              <h1>
+                  <a href="{{ path('courses_show', { 'id': entity.idCourse })}}">
+                  {{ entity.courseTitle }} 
+                  </a>
+                                  
+                </h1>
+                              <p>
+                                {{ entity.description }}
+                </p>
+                <h2>Objectives</h2>
+                <p>{{ entity.objectives }}</p>
+                 <a href="{{ path('courses_show', { 'id': entity.idCourse }) }}" class="btn btn-primary">
+                  Continue Reading
+                </a>
+                             
+                         </div>        
+                         
+                         
+                </div>
+                
+        </div>
+    </div>
+    
+</div>
+        {% endfor %}
+            {%endif%}
+     
+ 
+
+      
+    {% endblock %}

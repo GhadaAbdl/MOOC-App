@@ -1,0 +1,66 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %}Video Conference Add{% endblock %}
+{% block arianne %}Video Conference Add{% endblock %}
+{% block body %}
+   
+
+ <div class="component-bg">
+        <div class="container">
+           
+<div class="bs-docs-section mar-b-30">
+  <h1 id="forms" class="page-header">Add The Details</h1>
+
+  <div class="bs-example">
+      <p>{{form_errors(form)}}
+      </p>
+      <form role="form" method="post" action='{{path('pidev_mooc_videoconference')}}'>
+      <div class="form-group">
+        <label for="Input">Course</label>
+{{form_widget(form.course, {'attr': {'class': 'form-control'}})}}
+      </div>
+              <div class="form-group">
+
+         <label for="Input">Chapter</label>
+{{form_widget(form.chapter, {'attr': {'class': 'form-control'}})}}
+      </div>
+         <div class="form-group">
+
+   <label for="Input">Date</label>
+{{form_widget(form.date, {'attr': {'class': 'form-control'}})}}
+      </div>
+         <div class="form-group">
+
+             <label for="Input">Time</label>
+{{form_widget(form.time, {'attr': {'class': 'form-control'}})}}
+      </div>
+         <div class="form-group">
+
+      <label for="Input">Duration</label>
+{{form_widget(form.duration, {'attr': {'class': 'form-control'}})}}
+      </div>
+         <div class="form-group">
+
+     <label for="Input">Notes</label>
+{{form_widget(form.note, {'attr': {'class': 'form-control'}})}}
+      </div> 
+      <div class="form-group">
+
+     <label for="Input">Link</label>
+{{form_widget(form.link, {'attr': {'class': 'form-control'}})}}
+      </div>
+           {{form_widget(form.participate)}}
+          <div class="form-group">
+              <input type="hidden" name="save" value="videoconference">
+{{form_widget(form._token)}}
+     
+ 
+      <button type="submit" class="btn btn-primary btn-lg">Add</button>
+            <button type="submit" class="btn btn-danger btn-lg">Cancel</button>
+ </div>  
+    </form>
+  </div><!-- /example --> 
+    </div>
+        </div>
+ </div>
+   
+         {% endblock %}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="QuizzContent" table="quizz_content">
+    <unique-constraints>
+      <unique-constraint name="id_quizz" columns="id_quizz"/>
+    </unique-constraints>
+    <id name="idContent" type="integer" column="id_content">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="answer" type="string" column="answer" length="100" nullable="false"/>
+    <field name="suggestion" type="string" column="suggestion" length="100" nullable="false"/>
+    <field name="question" type="string" column="question" length="100" nullable="false"/>
+    <many-to-one field="idQuizz" target-entity="Quizz">
+      <join-columns>
+        <join-column name="id_quizz" referenced-column-name="id_quizz"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

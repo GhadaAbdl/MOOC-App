@@ -1,0 +1,42 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.provider.oauth:
+        class: Mooc\UserBundle\Security\Core\User\OAuthUserProvider
+        arguments: [@fos_user.user_manager,{facebook: facebookID, google: googleID}]
+        
+
+    admin.category:
+        class: PiBundle\Admin\CategoryAdmin
+        arguments: [~, PiBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
+            
+    admin.blog_post:
+        class: PiBundle\Admin\BlogPostAdmin
+        arguments: [~, PiBundle\Entity\BlogPost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Blog post }
+    
+    admin.users:
+        class: PiBundle\Admin\UsersAdmin
+        arguments: [~, PiBundle\Entity\Users, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: 'admin.group.users', label_catalogue: "PiBundle" }
+        arguments: [ null,  PiBundle\Entity\Users, null, @service_container]
+    
+   
+    
+    
+    sonata.block.service.stat:
+        class: PiBundle\Block\StatBlockService
+        arguments: [ "sonata.block.service.stat", @templating, @sonata.admin.pool, @doctrine.orm.entity_manager, @security.context]
+        tags:
+            - { name: sonata.block }
+    

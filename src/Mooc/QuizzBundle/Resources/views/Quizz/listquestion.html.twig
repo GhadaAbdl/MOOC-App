@@ -1,0 +1,22 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block body %}
+
+    <table class="table">
+        <tr>
+            <th>Question number</th>
+            <th>Question</th>
+           
+
+        </tr>
+        {% for question in listeQuestion %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ question.question }}</td>
+                <td>
+
+                    <a href="{{path('mooc_question_update', {'id':question.idContent})}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

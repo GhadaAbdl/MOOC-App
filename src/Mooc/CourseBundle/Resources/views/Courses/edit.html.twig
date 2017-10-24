@@ -1,0 +1,36 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %}courses {% endblock %}
+{% block arianne %}edit{% endblock %}
+{% block body %}
+   <div class="component-bg">
+        <div class="container">
+        <div class="bs-docs-section mar-b-30">
+                <div class="bs-example" style="background-color: #F8f8f8;  ">
+        
+    <h1>Chapter edit</h1>
+    <div class="form-group">
+    {{ form(edit_form) }}
+    </div>
+        <ul class="record_actions">
+   
+        <a href="{{ path('MyCourses_show') }}">
+            Back to my Courses
+        </a>
+    
+     
+</ul>
+
+ </div>
+
+
+    </div>
+
+
+
+    
+    
+</div>
+</div>
+    
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+services:
+    admin.category:
+        class: PiBundle\Admin\CategoryAdmin
+        arguments: [~, PiBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
+            
+    admin.blog_post:
+        class: PiBundle\Admin\BlogPostAdmin
+        arguments: [~, PiBundle\Entity\BlogPost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Blog post }
+    
+    admin.users:
+        class: PiBundle\Admin\UsersAdmin
+        arguments: [~, PiBundle\Entity\Users, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Users }
+        arguments:
+            - ~
+            - PiBundle\Entity\Users
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [PiBundle]]
+    
+    admin.courses:
+        class: PiBundle\Admin\CoursesAdmin
+        arguments: [~, PiBundle\Entity\Courses, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: 'admin.group.Courses', label_catalogue: "PiBundle" }
+        arguments: [ null,  PiBundle\Entity\Courses, null, @service_container]

@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+{% block nbrnotif %}
+                      
+{% endblock%}
+{% block nombreuser %}{% endblock%}
+{% block users %} <a href="{{path('admin_user_liste')}}"> {% endblock%}
+    {% block dashboard %}<a href="{{path('accueil')}}"> {% endblock%}
+{% block body %}
+
+    {{ sonata_block_render({
+    'type': 'sonata.admin.block.admin_list',
+    
+   
+}) }}
+    
+                      
+                    {% endblock %}

@@ -1,0 +1,45 @@
+mooc_quizz_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MoocQuizzBundle:Default:index }
+mooc_quizz_add:
+    path:     /addquizz/{id_chapter}
+    defaults: { _controller: MoocQuizzBundle:Quizz:addQuizz}
+mooc_quizz_addnm:
+    path:     /addquizznm/{id_course}/{id_chapter}/{chapterNumber}
+    defaults: { _controller: MoocQuizzBundle:Quizz:addQuizzNonMandatory}
+mooc_question_add:
+    path:     /addquestion/(idQuizz}/(questionNumber}/{id_course}/{id_chapter}/{chapterNumber}
+    defaults: { _controller: MoocQuizzBundle:Quizz:addQuestion}
+mooc_question_addM:
+    path:     /addquestion/(idQuizz}/(questionNumber}
+    defaults: { _controller: MoocQuizzBundle:Quizz:addQuestionM}
+mooc_quizz_pass:
+    path:     /passquizz/{idChapter}
+    defaults: { _controller: MoocQuizzBundle:Quizz:getQuizz}
+mooc_quizznm_pass:
+    path:     /passquizznm/{idChapter}
+    defaults: { _controller: MoocQuizzBundle:Quizz:getNmQuizz}
+mooc_certification:
+    path:     /certification/{note}/{idQuizz}
+    defaults: { _controller: MoocQuizzBundle:Certification:addCertification}
+mooc_result:
+    path:     /result/{note}
+    defaults: { _controller: MoocQuizzBundle:Certification:result}
+mooc_quizz_list:
+    path:     /listquizz
+    defaults: { _controller: MoocQuizzBundle:Quizz:listQuizz}
+mooc_quizzcontent_list:
+    path:     /listquestions/{id}
+    defaults: { _controller: MoocQuizzBundle:Quizz:listQuestion}
+mooc_quizz_update:
+    path:     /updatequizz/{id}
+    defaults: { _controller: MoocQuizzBundle:Quizz:updateQuizz} 
+mooc_question_update:
+    path:     /updatequestion/{id}
+    defaults: { _controller: MoocQuizzBundle:Quizz:updateQuestion}   
+    
+    
+
+
+    
+

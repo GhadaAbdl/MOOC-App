@@ -1,0 +1,8 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} | Profile  {% endblock %}
+ {% block pagetitle %}Profile{% endblock %}
+{% block arianne %}Profile{% endblock %}
+{% block fosarianne %}{{ parent() }} |   <a href="{{path('mooc_profil_disable', { id: app.user.id })}}">Disable My Account</a>{% endblock %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock fos_user_content %}

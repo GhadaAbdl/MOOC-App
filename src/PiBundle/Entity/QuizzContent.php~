@@ -1,0 +1,56 @@
+<?php
+
+namespace PiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * QuizzContent
+ *
+ * @ORM\Table(name="quizz_content", uniqueConstraints={@ORM\UniqueConstraint(name="id_quizz", columns={"id_quizz"})})
+ * @ORM\Entity
+ */
+class QuizzContent
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_content", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idContent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="answer", type="string", length=100, nullable=false)
+     */
+    private $answer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="suggestion", type="string", length=100, nullable=false)
+     */
+    private $suggestion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=100, nullable=false)
+     */
+    private $question;
+
+    /**
+     * @var \Quizz
+     *
+     * @ORM\ManyToOne(targetEntity="Quizz")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_quizz", referencedColumnName="id_quizz")
+     * })
+     */
+    private $idQuizz;
+
+
+}

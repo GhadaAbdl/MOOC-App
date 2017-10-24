@@ -1,0 +1,14 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block body %}
+    <h1>Update quizz</h1>
+
+    <form method= "post">
+        {{form_widget(form)}}
+
+
+        <input class="btn btn-lg btn-login btn-block" type="submit" value="Update Quizz !" >
+
+    </form>
+        <h3> <center> <a href="{{path('mooc_quizzcontent_list', {'id':listeQuizz.id})}}">Update Quizz Questions</a> </center> </h3>
+    
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    mooc_quizz.example:
+#        class: Mooc\QuizzBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

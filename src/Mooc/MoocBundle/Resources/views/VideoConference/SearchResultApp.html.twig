@@ -1,0 +1,203 @@
+{# empty Twig template #}
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %}search{% endblock %}
+{% block arianne %}Search{% endblock %}{% block body %}
+
+ 
+    <!--breadcrumbs end-->
+
+    <!--container start-->
+    <div class="container">
+           <form role="form" method="post" action='{{path('pidev_mooc_videoconferenceRechercheVideoApp')}}'>
+              {{form_widget(Form.course, {'attr': {'class': 'form-control search' , 'placeholder' :"Search"}})}}
+              <br><br><br><br>
+              <div class="form-group">
+              <input type="hidden" name="save" value="courses">
+{{form_widget(Form._token)}}
+ <h2> Result search for : {{rech}} </h2><br>
+        <div class="row">
+            {% for vd in video %}
+                <div class="col-md-6">
+                    <div class="blog-left wow fadeInLeft">
+                        <div class="blog-img">
+                            <img src="{{asset('img/blog/img8.jpg')}}" alt=""/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="blog-two-info">
+                                    <p>
+                                        <i class="fa fa-user">
+                                        </i>
+                                        by
+                                        <a href="#">
+                                            Former
+                                        </a>
+
+                                        |
+
+
+                                        <a href="#">
+                                            Course:
+                                            {{vd.course}}|
+                                        </a>
+
+                                        <i >
+                                        </i>
+
+                                        <a href="#">
+                                            Chapter:
+                                            {{vd.chapter}}
+                                        </a>
+                                        <br>
+                                        <br>
+                                        <i class="fa fa-calendar">
+                                        </i>
+                                        <a>
+
+                                            {{vd.date|date('Y-m-d')}}|
+
+                                        </a>
+                                        <a >
+                                            Time:
+                                            {{vd.time}}|
+                                        </a>
+                                        <a >
+                                            Duration:
+                                            {{vd.duration}} Hours
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>
+                                Notes             
+                            </h3>
+                            <p>
+                                {{vd.note}}
+                            </p>
+                            
+                        </div>
+                     
+     <a href="{{path('pidev_mooc_videoconferenceParticipate', {'id':vd.id})}}" >
+     <img src="{{asset('img/participate.png')}}" alt=""/></a>
+    <a href="{{path('pidev_mooc_videoconferenceYoutube', {'id':vd.id})}}">
+                                   <img src="{{asset('img/watch.png')}}" alt=""/> 
+                            </a>
+       &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp 
+                                &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp 
+                                &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp
+                                  
+                                        <i class="fa fa-users"></i>  Participated
+                                     &nbsp &nbsp    <span class="badge bg-green"> {{vd.participate}} </span>
+         
+                                     </br>    {{ socialButtons() }}
+                    </div>
+    
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="blog-left wow fadeInLeft">
+                        <div class="blog-img">
+                            <img src="{{asset('img/blog/img8.jpg')}}" alt=""/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="blog-two-info">
+                                    <p>
+                                        <i class="fa fa-user">
+                                        </i>
+                                        by
+                                        <a href="#">
+                                            Former
+                                        </a>
+
+                                        |
+
+
+                                        <a href="#">
+                                            Course:
+                                            {{vd.course}}|
+                                        </a>
+
+                                        <i >
+                                        </i>
+
+                                        <a href="#">
+                                            Chapter:
+                                            {{vd.chapter}}
+                                        </a>
+                                        <br><br>
+                                        <i class="fa fa-calendar">
+                                        </i>
+                                        <a>
+
+                                            {{vd.date|date('Y-m-d')}}|
+
+                                        </a>
+                                        <a >
+                                            Time:
+                                            {{vd.time}}|
+                                        </a>
+                                        <a >
+                                            Duration:
+                                            {{vd.duration}} Hours
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>
+                                Notes             
+                            </h3>
+                            <p>
+                                {{vd.note}}
+                            </p>
+                            
+                        </div>
+
+        <a href="{{path('pidev_mooc_videoconferenceParticipate', {'id':vd.id})}}" >
+    <img src="{{asset('img/participate.png')}}" alt=""/> </a>
+     <a href="{{path('pidev_mooc_videoconferenceYoutube', {'id':vd.id})}}">
+                                <img src="{{asset('img/watch.png')}}" alt=""/>  
+                            </a>
+    
+      
+                                &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp 
+                                &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp 
+                                &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp
+                                
+                                        <i class="fa fa-users"></i>  Participated
+                                     &nbsp &nbsp    <span class="badge bg-green"> {{vd.participate}} </span>
+                               
+                                     </br>   {{ socialButtons() }}
+                    </div> 
+
+ 
+                </div>
+            {% endfor %}
+<div class="navigation">
+    <center>
+    </center>
+</div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--blog end-->
+</div>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,53 @@
+pidev_mooc_homepage:
+    path:     /home
+    defaults: { _controller: MoocMoocBundle:Default:index }
+pidev_mooc_affichage:
+    path: /index
+    defaults: { _controller: MoocMoocBundle:Default:index}
+    
+pidev_mooc_videoconference:
+    path: /videoconference
+    defaults: { _controller: MoocMoocBundle:videoconference:video}    
+pidev_mooc_videoconferenceShow:
+    path: /videoList
+    defaults: { _controller: MoocMoocBundle:videoconference:videoshow}  
+    
+pidev_mooc_videoconferenceEdit:
+    path: /videoEdit/{id}
+    defaults: { _controller: MoocMoocBundle:videoconference:edit}    
+    
+pidev_mooc_videoconferenceDelete:
+    path: /videoDelete/{id}
+    defaults: { _controller: MoocMoocBundle:videoconference:delete}
+pidev_mooc_videoconferenceParticipate:
+    path: /participate/{id}
+    defaults: { _controller: MoocMoocBundle:videoconference:participate}
+pidev_mooc_videoconferenceRecherche:
+    path: /rechercheCour
+    defaults: { _controller: MoocMoocBundle:courses:CourSearch}
+pidev_mooc_about:
+    path: /about
+    defaults: { _controller: MoocMoocBundle:Default:about}  
+pidev_mooc_terms:
+    path: /terms
+    defaults: { _controller: MoocMoocBundle:Default:term}     
+pidev_mooc_videoconferenceYoutube:
+    path: /videoy/{id}
+    defaults: { _controller: MoocMoocBundle:videoconference:videoyoutube}    
+pidev_mooc_videoconferenceShowApp:
+    path: /videoListApp
+    defaults: { _controller: MoocMoocBundle:videoconference:videoshowApp} 
+pidev_mooc_videoconferenceRechercheVideo:
+    path: /search
+    defaults: { _controller: MoocMoocBundle:videoconference:VideoSearch}
+pidev_mooc_videoconferenceRechercheVideoApp:
+    path: /searchApp
+    defaults: { _controller: MoocMoocBundle:videoconference:VideoSearchApp}
+pidev_mooc_videoconferenceStat:
+    path: /stat
+    defaults: { _controller: MoocMoocBundle:StatVideo:Stat}    
+    
+            
+     
+        
+        

@@ -1,0 +1,32 @@
+<?php
+
+namespace PiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Disciplines
+ *
+ * @ORM\Table(name="disciplines")
+ * @ORM\Entity
+ */
+class Disciplines
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_disp", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idDisp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+
+}

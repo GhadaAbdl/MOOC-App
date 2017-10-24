@@ -1,0 +1,73 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %}Contacts{% endblock %}
+{% block arianne %}Contacts{% endblock %}
+{% block body %}
+
+    <!--breadcrumbs end-->
+
+
+<div class="container">
+
+
+      <div class="row">
+        <div class="col-lg-5 col-sm-5 address">
+                                <img src="{{asset('img/ipadwhite.PNG')}}" alt="">
+
+         
+        
+        </div>
+                                <br><br><br>
+        <div class="col-lg-7 col-sm-7 address">
+          <h4>
+            Drop us a line so that we can hear from you
+          </h4>
+          <div class="contact-form">
+            <form role="form" id="fr" method="POST" action='{{path('my_app_mail_sendpage')}}'>
+              <div class="form-group">
+                <label for="name">
+                  Last Name
+                </label>
+           {{form_widget(form.nom, {'attr': {'class': 'form-control'}})}}
+
+              </div>
+              <div class="form-group">
+                <label for="email">
+                  First Name
+                </label>
+{{form_widget(form.prenom, {'attr': {'class': 'form-control'}})}}
+              </div>
+              <div class="form-group">
+                <label for="phone">
+                  Phone
+                </label>
+{{form_widget(form.tel, {'attr': {'class': 'form-control'}})}}
+              </div>
+              <div class="form-group">
+                <label for="phone">
+                  From
+                </label>
+{{form_widget(form.fromAdd, {'attr': {'class': 'form-control'}})}}
+              </div>
+              <div class="form-group">
+                <label for="phone">
+                  Message
+                </label>
+                {{form_widget(form.text, {'attr': {'class': 'form-control'}})}}
+
+              </div>
+                       <div class="form-group">
+              <input type="hidden" name="save" value="videoconference">
+{{form_widget(form._token)}}
+     
+              <button class="btn btn-info" type="submit">
+                Submit
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+{% endblock %}

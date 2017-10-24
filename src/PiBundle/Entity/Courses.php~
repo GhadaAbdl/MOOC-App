@@ -1,0 +1,60 @@
+<?php
+
+namespace PiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Courses
+ *
+ * @ORM\Table(name="courses")
+ * @ORM\Entity
+ */
+class Courses
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_course", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCourse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=10000, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="objectives", type="string", length=10000, nullable=false)
+     */
+    private $objectives;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="training_duration", type="integer", nullable=false)
+     */
+    private $trainingDuration;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="validation", type="integer", nullable=true)
+     */
+    private $validation;
+
+
+}

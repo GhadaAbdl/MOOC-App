@@ -1,0 +1,85 @@
+# you can read more about security in the related section of the documentation
+# http://symfony.com/doc/current/book/security.html
+security:
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        FOS\UserBundle\Model\UserInterface: plaintext
+
+    # http://symfony.com/doc/current/book/security.html#hierarchical-roles
+    role_hierarchy:
+        ROLE_APRENANT: ROLE_USER
+        ROLE_FORMATEUR: ROLE_USER
+        ROLE_ORGANISM: ROLE_USER
+        ROLE_PEDAGOGUE: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    # the main part of the security, where you can set up firewalls
+    # for specific sections of your app
+    firewalls:
+        main:
+            pattern: ^/
+            oauth:
+                failure_path: /login
+                login_path: /login
+                check_path: /connect_check
+                provider: fos_userbundle
+                resource_owners:
+                    facebook: "/connect/check-facebook"
+                    google: "/login/check-google"
+                oauth_user_provider:
+                    service: app.provider.oauth
+                default_target_path: pidev_mooc_affichage
+            form_login:
+                provider: fos_userbundle
+                # csrf_token_generator: security.csrf.token_manager
+                # if you are using Symfony < 2.8, use the following config instead:
+                csrf_provider: form.csrf_provider
+                default_target_path: pidev_mooc_affichage
+
+            logout:       true
+            anonymous:    true
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        # the login page has to be accessible for everybody
+        demo_login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        # secures part of the application
+        demo_secured_area:
+            pattern:    ^/demo/secured/
+            # it's important to notice that in this case _demo_security_check and _demo_login
+            # are route names and that they are specified in the AcmeDemoBundle
+            form_login:
+                check_path: _demo_security_check
+                login_path: _demo_login
+            logout:
+                path:   _demo_logout
+                target: _demo
+            #anonymous: ~
+            #http_basic:
+            #    realm: "Secured Demo Area"
+
+    # with these settings you can restrict or allow access for different parts
+    # of your application based on roles, ip, host or methods
+    # http://symfony.com/doc/current/cookbook/security/access_control.html
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/home, role: ROLE_USER }
+        - { path: ^/alluser, role: ROLE_USER }
+        - { path: ^/otheruser, role: ROLE_USER }
+        - { path: ^/quizz, role: ROLE_USER }
+        - { path: ^/courses, role: ROLE_USER }
+        - { path: ^/chapter, role: ROLE_USER }
+        - { path: ^/MyCourses, role: ROLE_USER }
+        - { path: ^/certifuser, role: ROLE_USER }

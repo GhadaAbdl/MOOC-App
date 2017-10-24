@@ -1,0 +1,26 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}my certificates {% endblock %}
+{% block pagetitle %}my certificates{% endblock %}
+{% block arianne %}my certificates  {% endblock %}
+{% block body %}
+    
+    <table class="table">
+        <tr>
+            <th>Grade</th>
+            <th>Date passed</th>
+            <th>Quizz ID</th>
+
+        </tr>
+        {% for certif in certificates %}
+            <tr>
+                <td>{{ certif.grade }}</td>
+                <td>{{ certif.datePassed | date('d/m/Y') }}</td>
+                <td>{{ certif.idQuizz }}</td>
+
+
+            </tr>
+        {% endfor %}
+    </table>  
+ <div>{{ socialButtons() }}</div>
+{% endblock %}

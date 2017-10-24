@@ -1,0 +1,41 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block header %}
+ {% endblock %} 
+{% block pagetitle %}add organism{% endblock %}
+{% block arianne %}add organism{% endblock %}
+{% block body %}
+    <div class="login-bg">
+        <div class="container">
+            <div class="form-wrapper">
+    <form class= "form-signin wow fadeInUp" action="{{ path("mooc_profil_addorganism") }}" method="post" enctype="multipart/form-data" >
+    
+        <h2 class="form-signin-heading">sign in now</h2>   
+        <div class="login-wrap">
+            {{ form_row(form._token) }}
+
+        {{ form_row(form.email , { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.birth_date, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.image_file, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.cv_file, { 'attr': {'class': 'form-control'} }) }}
+        <div>
+    <input class="btn btn-lg btn-login btn-block" type="submit" value="{{ 'register'|trans }}">
+    </div>
+     <div class="registration">
+                        Already Registered ?
+                        <a class="" href="{{path('fos_user_security_login')}}">
+                            Login
+                        </a>
+                    </div>
+    </div>
+</form>
+     </div>
+        </div>
+    </div>
+    {% endblock %}
+{% block footer %}
+ {% endblock %}  

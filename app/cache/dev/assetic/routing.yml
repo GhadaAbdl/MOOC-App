@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'C:\wamp\www\pidev_mooc_esprit_symfony\app/config/routing_dev.yml'

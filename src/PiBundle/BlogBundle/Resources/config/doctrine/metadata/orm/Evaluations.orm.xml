@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Evaluations" table="evaluations">
+    <id name="idEvaluation" type="integer" column="id_evaluation">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="appreciation" type="string" column="appreciation" length="1000" nullable="false"/>
+    <field name="mark" type="float" column="mark" precision="10" scale="0" nullable="false"/>
+    <field name="dateEnd" type="date" column="date_end" nullable="false"/>
+    <field name="dateQuizz" type="date" column="date_quizz" nullable="false"/>
+  </entity>
+</doctrine-mapping>

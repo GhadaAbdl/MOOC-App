@@ -1,0 +1,15 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block body %}
+    <center>
+        <h1>Add Question {{questionNumberTwig}}</h1>
+
+        <form method= "post">
+            {{form_widget(form1)}}
+
+
+            <input class="btn btn-lg btn-login btn-block"  type="submit" value="Add Question !">
+
+        </form>
+    </center>
+
+{% endblock %}

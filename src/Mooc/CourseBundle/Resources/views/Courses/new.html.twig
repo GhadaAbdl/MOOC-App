@@ -1,0 +1,33 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body -%}
+      <div class="component-bg">
+        <div class="container">
+        <div class="bs-docs-section mar-b-30">
+                <div class="bs-example" style="background-color: #F8f8f8;  ">
+        
+    <h1>Create Course</h1>
+    <div class="form-group">
+    {{ form(form) }}
+    </div> 
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('courses') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(form) }}</li>
+</ul>
+
+ </div>
+
+
+    </div>
+
+
+
+    
+    
+</div>
+</div>
+{% endblock %}

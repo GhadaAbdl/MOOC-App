@@ -1,0 +1,101 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | {{ user.username }} {% endblock %}
+{% block pagetitle %}Profile of {{ user.username }}{% endblock %}
+{% block arianne %}{{ user.username }}{% endblock %}
+{% block body %}
+
+<section class="content">
+<div class="container" style="padding-top: 60px;">   
+ <div class="row">   
+     
+<div class="fos_user_user_show">
+    
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <img id="img_logo" src="{{ asset('mooc/' ~  user.imgLink ) }}" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+    
+    
+    <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'username'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.username }}</p>
+          </div>
+        </div>
+    
+          <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'email'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.email }}</p>
+          </div>
+        </div>
+    
+          <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'name'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.name }}</p>
+          </div>
+        </div>
+          {% if user.type != 'Organism' %}
+          <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'level'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.level }}</p>
+          </div>
+        </div>
+          {% endif %}
+          <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'type'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.type }}</p>
+          </div>
+        </div>
+          
+           <div class="form-group">
+          <label class="col-lg-3 control-label">{{ 'Birth date'|trans }}:</label>
+          <div class="col-lg-8">
+              <p>{{ user.birthDate | date('d/m/Y') }}</p>
+          </div>
+        </div>
+
+         
+          
+          
+    
+    
+    
+</div>
+</div>
+           {% if user.type != 'Aprenant' %}
+              
+               <object data="{{ asset('mooc/' ~  user.cvLink ) }}"  type="application/pdf" width="100%" height="800px">
+            <p>It appears your Web browser is not configured to display PDF files.
+                No worries, just <a href="{{ asset('mooc/' ~  user.cvLink ) }}">click here to download the PDF file.</a>
+            </p>
+ 
+        </object>
+
+            {% endif %}
+           <div>{{ socialButtons() }}</div>
+ </div>
+                                           <div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.6&appId=1722477904656254";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                              
+                     <div class="fb-comments" data-href="https://www.facebook.com/MoocEsprit/" data-numposts="5"></div>         
+
+                                    <div class="media-body">
+</div>
+            
+</section>
+    
+{% endblock %}

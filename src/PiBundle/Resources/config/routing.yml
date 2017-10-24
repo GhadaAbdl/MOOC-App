@@ -1,0 +1,23 @@
+pi_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PiBundle:Default:index }
+
+accueil:
+    path:     /accueil
+    defaults: { _controller: PiBundle:Users:chart }
+
+test:
+    path:     /test
+    defaults: { _controller: PiBundle:Users:index }
+    
+ajout_organisme:
+    path:     /accueil/{id}
+    defaults: { _controller: PiBundle:Users:AccepterOrganisme }
+    
+profil_organisme:
+    path:     /profil/{surname}
+    defaults: { _controller: PiBundle:Users:ProfilOrganisme }
+    
+admin_user_liste:
+    path:     /profil
+    defaults: { _controller: PiBundle:Users:ListeUsers }

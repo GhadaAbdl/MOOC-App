@@ -1,0 +1,28 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block pagetitle %} Chapter {% endblock %}
+{% block arianne %} add final chapter {% endblock %}
+{% block body -%}
+
+       <div class="bs-docs-section mar-b-30">
+           
+   <div class="bs-example">
+    <h1>Final Chapter </h1>
+  
+
+    {{ form(form) }}
+    
+  
+ 
+               
+   </div>
+   
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('chapter') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+       </div>
+       {% endblock %}

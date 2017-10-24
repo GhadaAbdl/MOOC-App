@@ -1,0 +1,119 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body %}       
+    
+        <div class="component-bg">
+      <div class="container">
+
+        <div class="bs-docs-section">
+<div class="bs-example">
+     
+    {% if entity == null%}
+     sorry you didn't add any Course :) ! 
+    {% else   %}
+    <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    N°
+                  </th>
+                  <th>
+                    statu
+                  </th>
+                  <th>
+                    discipline
+                  </th>
+                  <th>
+                    course_title
+                  </th>
+                  <th>
+                    description
+                  </th>
+                  
+                  <th>
+                    objectives  
+                  </th>
+                  <th>
+                    rating
+                  </th>
+                  <th>
+                    About
+                  </th>
+                   
+                  <th>
+                    modifier
+                  </th>
+                  <th>
+                    supprimer
+                  </th>
+                  <th>
+                    afficher
+                  </th>
+                </tr>
+              </thead>
+              {% for Course   in entity %}
+                 
+              <tbody>
+                
+                    {% if   Course.validation == 1     %} 
+                    <tr class="success" >
+                    {% else %}
+                    <tr class="warning" >
+                    {% endif%}
+                   <td>
+                     {{ loop.index }}
+                  </td>
+                    
+                    <td>
+                        {% if   Course.validation == 1     %} 
+                    valide
+                    {% else %}
+                    non valide
+                    {% endif%}
+                    </td>
+                  
+                  <td>
+                   {{ Course.discipline }}
+                  </td>
+                  <td>
+                   {{ Course.courseTitle }}
+                  </td>
+                 <td>
+                    {{ Course.description }}
+                  </td>
+                  
+                  <td>
+                    {{ Course.objectives }} 
+                  </td>
+                   <td>
+                    {{ Course.rating }} /5
+                  </td>
+                  <td>
+                    Statistique 
+                  </td>
+                  
+                  <td><a href="{{ path('courses_edit', { 'id': Course.idCourse }) }}">edit</a></td>
+                 <td><a href="{{ path('courses_delete', { 'id': Course.idCourse }) }}">delete</a></td>
+                <td>
+                      <a href="{{ path('courses_show', { 'id': Course.idCourse }) }}" class="btn btn-primary">
+                   access 
+                </a>
+                  </td>
+                    
+                    </tr>
+                  
+                 
+              
+             
+            
+                
+              
+                {% endfor %}
+              </tbody>
+              
+            </table>
+               {% endif %}
+          </div>
+
+ </div> </div> </div>
+{% endblock %}

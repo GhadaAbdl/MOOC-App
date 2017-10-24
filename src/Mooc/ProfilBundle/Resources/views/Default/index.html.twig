@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js is-ie"><![endif]-->
+<!--[if gt IE 8]><!--><html class=no-js><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="BlackTie Free Bootstrap Theme">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="shortcut icon" href="{{ asset('img/small_logo.png') }}">
+
+	
+
+	<title>Mooc esprit</title>
+	<link rel=stylesheet href="{{ asset('cssintro/main.css') }}">
+	<!--[if lte IE 8]>
+	<link rel=stylesheet href="css/ie.css">
+	<![endif]-->
+		<script src="{{ asset('jsintro/vendor/modernizr.js') }}"></script>
+
+		<script src="{{ asset('jsintro/vendor/respond.min.js') }}"></script>
+
+</head>
+
+<body>
+	<div class="level level-hero hero-home has-hint">
+		
+
+		<div class="hero-overlay visible-lg"></div>
+
+		<video loop id=bg-video class=fullscreen-video>
+			<source src="{{ asset('http://alvarez.is/bt/appi.webm') }}" type="video/webm">
+			<source src="{{ asset('http://alvarez.is/bt/appi.mp4') }}" type="video/mp4">
+
+		</video>
+
+		<div class="container full-height">
+			<div class=v-align-parent>
+				<div class=v-center>
+					<div class="row">
+                                            <a class="btn btn-prepend btn-launch-video" href="{{path('fos_user_security_login')}}">
+							<i class="prepended icon-append-play"></i>Login
+						</a>   
+						<div class="col-xs-10 col-sm-6">
+							<h1 class="mb-10 heading">preparing <span>students</span></h1>
+							<div class="subheading mb-20">for success <br class=hidden-xs>in a changing world . </div>
+						</div>
+					</div>
+					<div>
+						<a class="btn btn-prepend btn-launch-video" href="{{path('fos_user_registration_register')}}">
+							<i class="prepended icon-append-play"></i>Subscribe
+						</a>
+                                                        
+                                                        <a class="btn btn-prepend btn-launch-video" href="{{path('mooc_profil_addorganism')}}">
+							<i class="prepended icon-append-play"></i>Organism
+						</a>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+
+	
+
+
+
+
+	
+	<script src="{{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}"></script>
+	<script>window.jQuery || document.write('<script src="{{ asset('jsintro/vendor/jquery-1.11.1.min.js') }}"><\/script>')</script>
+
+	<script src="{{ asset('jsintro/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('jsintro/dropdown.js') }}"></script>
+	<script src="{{ asset('jsintro/modal.js') }}"></script>
+	<script src="{{ asset('jsintro/main.js') }}"></script>
+	<!-- //-end- concat_js -->
+
+
+	
+
+</body>
+</html>

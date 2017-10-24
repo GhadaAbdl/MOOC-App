@@ -1,0 +1,31 @@
+mooc_profil_homepage:
+    path:     /
+    defaults: { _controller: MoocProfilBundle:Default:index }
+   
+mooc_profil_home:
+    path:     /home
+    defaults: { _controller: MoocProfilBundle:Home:Home }
+    
+mooc_profil_alluser:
+    path:     /alluser
+    defaults: { _controller: MoocProfilBundle:Home:alluser }
+    
+mooc_profil_otheruser:
+    path:     /{id}/otheruser
+    defaults: { _controller: MoocProfilBundle:Home:otheruser }
+    requirements:
+        id: \d+
+        
+mooc_profil_addorganism:
+    path:     /addorganism
+    defaults: { _controller: MoocProfilBundle:Home:add }
+    
+mooc_profil_disable:
+    path:     /{id}/disable
+    defaults: { _controller: MoocProfilBundle:Home:disable }
+    requirements:
+        id: \d+
+           
+mooc_profil_certifuser:
+    path:     /certifuser
+    defaults: { _controller: MoocProfilBundle:Home:certifuser }

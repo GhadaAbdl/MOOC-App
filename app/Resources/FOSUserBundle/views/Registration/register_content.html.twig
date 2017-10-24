@@ -1,0 +1,54 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+    <div class="login-bg">
+        <div class="container">
+            <div class="form-wrapper">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-signin wow fadeInUp'}}) }}
+
+<script src="{{ asset('js/jquery-2.2.3.min.js') }}">
+</script>
+<script>
+    $(document).ready(function(){
+        $('#momo').hide();
+        $("#fos_user_registration_form_roles_1").click(function(){
+            $('#momo').show();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#momo').hide();
+        $("#fos_user_registration_form_roles_0").click(function(){
+            $('#momo').hide();
+        });
+    });
+</script>
+<h2 class="form-signin-heading">sign in now</h2>    
+<div class="login-wrap">
+
+{{ form_row(form.email , { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.birth_date, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.level, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.image_file, { 'attr': {'class': 'form-control'} }) }}
+{{ form_row(form.roles) }}
+<span id="momo" >
+{{ form_row(form.cv_file, { 'attr': {'class': 'form-control'} }) }}
+</span>
+    <div>
+        <input class="btn btn-lg btn-login btn-block" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    <div class="registration">
+                        Already Registered ?
+                        <a class="" href="{{path('fos_user_security_login')}}">
+                            Login
+                        </a>
+                    </div>
+</div>
+                            {{ form_end(form) }}
+            </div>
+        </div>
+    </div>

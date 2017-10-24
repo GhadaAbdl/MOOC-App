@@ -1,0 +1,34 @@
+mooc_course_followcourse:
+    resource: "@MoocCourseBundle/Resources/config/routing/followcourse.php"
+    prefix:   /followcourse
+
+mooc_course_courses:
+    resource: "@MoocCourseBundle/Resources/config/routing/courses.php"
+    prefix:   /courses
+
+mooc_course_commentscourse:
+    resource: "@MoocCourseBundle/Resources/config/routing/commentscourse.php"
+    prefix:   /commentscourse
+
+mooc_course_chapter:
+    resource: "@MoocCourseBundle/Resources/config/routing/chapter.php"
+    prefix:   /chapter
+mooc_course_Stat:
+    pattern: /Stat
+    defaults: { _controller: MoocCourseBundle:Stat:Stat }
+    
+mooc_course_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MoocCourseBundle:Default:index }
+ 
+MyCourses_show:
+    path:     /MyCourses
+    defaults: { _controller: MoocCourseBundle:Courses:showMyCourses }
+ 
+newfinalChapter:
+    path:     /{num_chapitre}/{idCourse}/finalnew
+    defaults: { _controller: MoocCourseBundle:Chapter:finalchapter }      
+    
+CoursesByType:
+    path:     coursesbtype/{type}/
+    defaults: { _controller: MoocCourseBundle:Courses:FindByType }    

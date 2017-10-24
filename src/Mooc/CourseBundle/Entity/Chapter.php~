@@ -1,0 +1,53 @@
+<?php
+
+namespace Mooc\CourseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Chapter
+ *
+ * @ORM\Table(name="chapter")
+ * @ORM\Entity
+ */
+class Chapter
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_chapter", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idChapter;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chaptertitle", type="string", length=255, nullable=false)
+     */
+    private $chaptertitle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="chapternumber", type="integer", nullable=false)
+     */
+    private $chapternumber;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_course", type="integer", nullable=false)
+     */
+    private $idCourse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapterContent", type="text", nullable=false)
+     */
+    private $chaptercontent;
+
+
+}

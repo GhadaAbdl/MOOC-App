@@ -1,0 +1,105 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block body %}
+<script>
+    function getResult() {
+        var j = 1;
+        var result = 0;
+        for (j; j < 16; j++) {
+            var rates = document.getElementsByName('question' + j);
+            var rate_value;
+            for (var i = 0; i < rates.length; i++) {
+                if (rates[i].checked) {
+                    rate_value = rates[i].value;
+                    if (rate_value == document.getElementById("answer" + j).value)
+                    {
+                        result++;
+                    }
+                }
+
+            }
+            
+
+        }
+        idUser={{ Quizz[0].idUser }};
+        idQuizz={{ Quizz[0].id }};
+       
+        window.location.href = "http://localhost/pidev_mooc_esprit_symfony/web/app_dev.php/quizz/certification/{note}/{idQuizz}?note="+result+"&idQuizz="+idQuizz;
+        
+    }
+    function countDown(secs, elem) {
+        var element = document.getElementById(elem);
+        element.innerHTML = "You have " + secs + " seconds left !";
+        if (secs < 1) {
+            clearTimeout(timer);
+            secs = 1;
+            getResult();
+        }
+        secs--;
+        ﻿
+                var timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
+    }
+
+</script>
+
+
+
+    <div id="status"></div>
+    <center> <h1> {{ Quizz[0].name }}</h1> </center>
+    <script>countDown('{{ Quizz[0].duration }}' * 60, "status");</script>
+    {% for quizzcontent in listeQuizz %}
+        {% set x= random(3) %}
+        {% if x==0  %}
+        <form action="">
+             
+            Question {{loop.index}}: {{quizzcontent.question}} <br>
+            
+            <input type="radio" id="answer{{loop.index}}" name="question{{loop.index}}" value={{ quizzcontent.answer }}> {{ quizzcontent.answer }}   <br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion }}> {{ quizzcontent.suggestion }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion2 }}> {{ quizzcontent.suggestion2 }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion3 }}> {{ quizzcontent.suggestion3 }}<br>
+        </form>
+        
+        {% elseif x==1  %}
+        <form action="">
+             
+            Question {{loop.index}}: {{quizzcontent.question}} <br>
+            
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion }}> {{ quizzcontent.suggestion }}<br>
+            <input type="radio" id="answer{{loop.index}}" name="question{{loop.index}}" value={{ quizzcontent.answer }}> {{ quizzcontent.answer }}   <br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion2 }}> {{ quizzcontent.suggestion2 }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion3 }}> {{ quizzcontent.suggestion3 }}<br>
+        </form>
+       
+        {% elseif x==2  %}
+        <form action="">
+             
+            Question {{loop.index}}: {{quizzcontent.question}} <br>
+            
+            
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion }}> {{ quizzcontent.suggestion }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion2 }}> {{ quizzcontent.suggestion2 }}<br>
+            <input type="radio" id="answer{{loop.index}}" name="question{{loop.index}}" value={{ quizzcontent.answer }}> {{ quizzcontent.answer }}   <br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion3 }}> {{ quizzcontent.suggestion3 }}<br>
+        </form>
+        
+        {% elseif x==3  %}
+        <form action="">
+             
+            Question {{loop.index}}: {{quizzcontent.question}} <br>
+            
+            
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion }}> {{ quizzcontent.suggestion }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion2 }}> {{ quizzcontent.suggestion2 }}<br>
+            <input type="radio" name="question{{loop.index}}" value={{ quizzcontent.suggestion3 }}> {{ quizzcontent.suggestion3 }}<br>
+            <input type="radio" id="answer{{loop.index}}" name="question{{loop.index}}" value={{ quizzcontent.answer }}> {{ quizzcontent.answer }}   <br>
+        </form>
+        {% endif %}
+    {% endfor %}
+    
+
+
+
+    <button class="btn btn-lg btn-login btn-block" type="button" onclick="getResult()">Submit Quizz !</button>
+
+
+{% endblock %}

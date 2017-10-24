@@ -1,0 +1,12 @@
+pidev_mail_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MoocMailBundle:Default:index }
+my_app_mail_succ: 
+    path: /succ 
+    defaults: { _controller: MoocMailBundle:Mail:index } 
+my_app_mail_form: 
+    path: /mail 
+    defaults: { _controller: MoocMailBundle:Mail:new }
+my_app_mail_sendpage: 
+    path: /sendmail 
+    defaults: { _controller: MoocMailBundle:Mail:sendMail }

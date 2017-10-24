@@ -1,0 +1,82 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | All users  {% endblock %}
+{% block pagetitle %}All users{% endblock %}
+{% block arianne %}All users{% endblock %}
+{% block body %}
+
+        <div class="container">
+            <div class="form-wrapper">
+
+    <div class="content-wrapper">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          
+
+          <div class="box">
+
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birth date</th>
+            <th>Level</th>
+            <th>Type</th>
+            <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+
+            {% for user in users %}
+            <tr>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.birthDate | date('d/m/Y')}}</td>
+                <td>{{ user.level }}</td>
+                <td>{{ user.type }}</td>
+                <td>
+                    
+                    <input type="button" value="Show Profile" class="btn btn-info" onclick="location.href='{{ path("mooc_profil_otheruser", { id : user.id }) }}'" />
+                    
+                    
+                </td>
+
+            </tr>
+        {% endfor %}
+            
+                </tbody>
+                <tfoot>
+               <tr>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birth date</th>
+            <th>Level</th>
+            <th>Type</th>
+            <th>Action</th>
+
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+            
+        </div>
+</div>
+    
+    
+{% endblock %}

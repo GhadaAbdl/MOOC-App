@@ -1,0 +1,44 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Commentscourse</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idcomment</th>
+                <td>{{ entity.idComment }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ entity.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Idcourse</th>
+                <td>{{ entity.idCourse }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ entity.content }}</td>
+            </tr>
+            <tr>
+                <th>Commentdate</th>
+                <td>{{ entity.commentdate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('commentscourse') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('commentscourse_edit', { 'id': entity.idComment }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

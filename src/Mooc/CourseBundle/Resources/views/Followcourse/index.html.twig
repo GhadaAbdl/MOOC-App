@@ -1,0 +1,45 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Followcourse list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idfollowcourse</th>
+                <th>Iduser</th>
+                <th>Note</th>
+                <th>Inscriptiondate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('followcourse_show', { 'id': entity.idFollowcourse }) }}">{{ entity.idFollowcourse }}</a></td>
+                <td>{{ entity.idUser }}</td>
+                <td>{{ entity.note }}</td>
+                <td>{% if entity.inscriptiondate %}{{ entity.inscriptiondate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('followcourse_show', { 'id': entity.idFollowcourse }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('followcourse_edit', { 'id': entity.idFollowcourse }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('followcourse_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

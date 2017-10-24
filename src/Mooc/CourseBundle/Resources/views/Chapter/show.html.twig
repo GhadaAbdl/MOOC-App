@@ -1,0 +1,48 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body -%}
+    
+    
+    
+    <h1>Chapter</h1>
+
+    
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idchapter</th>
+                <td>{{ entity.idChapter }}</td>
+            </tr>
+            <tr>
+                <th>Chaptertitle</th>
+                <td>{{ entity.chaptertitle }}</td>
+            </tr>
+            <tr>
+                <th>Chapternumber</th>
+                <td>{{ entity.chapternumber }}</td>
+            </tr>
+            <tr>
+                <th>Idcourse</th>
+                <td>{{ entity.idCourse }}</td>
+            </tr>
+            <tr>
+                <th>Chaptercontent</th>
+                <td>{{ entity.chaptercontent }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('chapter') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('chapter_edit', { 'id': entity.idChapter }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
